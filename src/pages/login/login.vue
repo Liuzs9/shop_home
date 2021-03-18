@@ -13,42 +13,42 @@
 </template>
 
 <script>
-export default {
-  methods:{
-    login(){
-      this.$router.push('/')
-    }
-  }
-}
-// import { warningAlert, successAlert } from '../../utils/alert'
-// import {requestLogin} from '../../utils/request'
-// import {mapActions} from 'vuex'
 // export default {
-//   data(){
-//     return {
-//       user:{
-//         username:'',
-//         password:'',
-//       }
-//     }
-//   },
 //   methods:{
-//     ...mapActions({
-//       "requestUser":"userActions"
-//     }),
 //     login(){
-//     //   方式二:通过vuex结合sessionStorage来做用户信息存储
-//       if(this.user.username !== '' | this.user.password !== ''){
-//         //允许发起请求
-//         requestLogin(this.user).then(res=>{
-//           successAlert(res.data.msg);
-//           // 将数据存入vuex中
-//           this.requestUser(res.data.list)
-//           this.$router.push('/')
-//         })
-//       }else{
-//         warningAlert('请输入名户名或者密码')
-//       }
+//       this.$router.push('/')
+//     }
+//   }
+// }
+import { warningAlert, successAlert } from '../../utils/alert'
+import {requestLogin} from '../../utils/request'
+import {mapActions} from 'vuex'
+export default {
+  data(){
+    return {
+      user:{
+        username:'',
+        password:'',
+      }
+    }
+  },
+  methods:{
+    ...mapActions({
+      "requestUser":"userActions"
+    }),
+    login(){
+    //   方式二:通过vuex结合sessionStorage来做用户信息存储
+      if(this.user.username !== '' | this.user.password !== ''){
+        //允许发起请求
+        requestLogin(this.user).then(res=>{
+          successAlert(res.data.msg);
+          // 将数据存入vuex中
+          this.requestUser(res.data.list)
+          this.$router.push('/')
+        })
+      }else{
+        warningAlert('请输入名户名或者密码')
+      }
 
 
 
@@ -67,9 +67,9 @@ export default {
 //       }else{
 //         warningAlert('请输入名户名或者密码')
 //       }
-//     }
-//   }
-// }
+    }
+  }
+}
 </script>
 
 <style scoped>

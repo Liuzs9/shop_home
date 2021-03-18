@@ -212,6 +212,116 @@ export const requestLogin = (data)=>{
     })
   }
 
+  // 添加商品分类
+  export const addCate = (data)=>{
+    // 使用FormDate来处理带有文件的数据
+    var from = new FormData()
+    for(let i in data){
+      form.append(i,data[i])
+    }
+    return axios({
+      method:'post',
+      url:baseUrl+'/api/cateadd',
+      data:form
+    })
+  }
+
+  // 商品分类列表
+export const getCate = (params)=>{
+  return axios({
+    method:'get',
+    url:baseUrl+'/api/catelist',
+    params,
+  })
+}
+
+// 获取分类详情
+export const oneCate = (params)=>{
+  return axios({
+    method:'get',
+    url:baseUrl+'/api/cateinfo',
+    params,
+  })
+}
+
+
+// 修改商品分类
+export const updateCate = (data)=>{
+  var form = new FormData()
+  for(let i in data){
+    form.append(i,data[i])
+  }
+  return axios({
+    method:'post',
+    url:baseUrl+'/api/cateedit',
+    data:form,
+  })
+}
+
+// 删除商品分类
+export const delCate = (data)=>{
+  return axios({
+    method:'post',
+    url:baseUrl+'/api/catedelete',
+    data:qs.stringify(data)
+  })
+}
+
+// 添加规格属性
+export const addSpec = (data)=>{
+  return axios({
+    method:'post',
+    url:baseUrl+'/api/specsadd',
+    data:qs.stringify(data)
+  })
+}
+
+
+// 获取规格属性列表
+export  const getSpec = (params)=>{
+  return axios({
+    method:'get',
+    url:baseUrl+'/api/specslist',
+    params,
+  })
+}
+
+// 获取规格属性总数
+export const specCount = ()=>{
+  return axios({
+    method:'get',
+    url:baseUrl+'/api/specscount',
+  })
+}
+
+// 获取规格属性详情
+export const oneSpec = (params)=>{
+  return axios({
+    method:'get',
+    url:baseUrl+'/api/specsinfo',
+    params,
+  })
+}
+
+
+// 修改规格属性
+export const updateSpec = (data)=>{
+  return axios({
+    method:'post',
+    url:baseUrl+'/api/specsedit',
+    data:qs.stringify(data)
+  })
+}
+
+// 删除规格属性
+export const delSpec = (data)=>{
+  return axios({
+    method:'post',
+    url:baseUrl+'/api/specsdelete',
+    data:qs.stringify(data)
+  })
+}
+
   // 添加商品
 export const addGoods = (data)=>{
   var form = new FormData()
